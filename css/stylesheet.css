@@ -1,0 +1,91 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: -moz-radial-gradient(center, circle cover,  #ffffff 10%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(10%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, circle cover,  #ffffff 10%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, circle cover,  #ffffff 10%,#e5e5e5 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, circle cover,  #ffffff 10%,#e5e5e5 100%); /* IE10+ */
+	background: radial-gradient(circle at center,  #ffffff 10%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+	cursor: default;
+	overflow: hidden;
+	color: #000;
+	font-size: 1.4em;
+	font-weight: 300;
+	font-family: 'Raleway', sans-serif;
+	text-shadow: 0px 0px 5px #333;
+}
+
+canvas{
+	width: 100%;
+	height: 100%;
+}
+
+#info {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	padding: 5px;
+	text-align: right;
+}
+
+#info a, #blog a {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+#info a:hover, #blog a:hover {
+	text-decoration: underline;
+}
+
+#info div {
+	padding: 0 5px;
+	display: inline-block;
+}
+
+#info div img {
+	position: relative;
+	top: 9px;
+	border-radius: 3px;
+}
+
+#info #artist {
+	margin-right: 5px;
+}
+
+#info #artist .name {
+	font-size: 0.8em;
+}
+
+#info #artist .song {
+	
+}
+
+#play {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	display: none;
+}
+
+#play_link {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 64px;
+	width: 64px;
+	background: url('../images/play.png') left center no-repeat transparent;
+	cursor: pointer;
+}
+
+#blog {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	padding: 5px;
+}
