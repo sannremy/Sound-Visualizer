@@ -38,22 +38,22 @@ request.onload = function() {
 				$('#info').text('Error decoding file data');
 				return;
 			}
-			
-			sourceJs = context.createJavaScriptNode(2048);
+
+			sourceJs = context.createScriptProcessor(2048, 1, 1);
 			sourceJs.buffer = buffer;
 			sourceJs.connect(context.destination);
 			analyser = context.createAnalyser();
 			analyser.smoothingTimeConstant = 0.6;
 			analyser.fftSize = 512;
-			
+
 			source = context.createBufferSource();
 			source.buffer = buffer;
 			source.loop = true;
-			
+
 			source.connect(analyser);
 			analyser.connect(sourceJs);
 			source.connect(context.destination);
-			
+
 			sourceJs.onaudioprocess = function(e) {
 				array = new Uint8Array(analyser.frequencyBinCount);
 				analyser.getByteFrequencyData(array);
@@ -63,15 +63,15 @@ request.onload = function() {
 		        }
 		        boost = boost / array.length;
 			};
-			
+
 			$('#info')
 				.fadeOut('normal', function() {
 					$(this).html('<div id="artist"><a class="name" href="http://www.looperman.com/users/profile/345547" target="_blank">Cufool</a><br /><a class="song" href="http://www.looperman.com/tracks/detail/70506" target="_blank">You in my world instrumental</a><br /></div><div><img src="data/cufool.jpg" width="58" height="58" /></div>');
 				})
 				.fadeIn();
-			
+
 			clearInterval(interval);
-			
+
 			// popup
 			$('body').append($('<div onclick="play();" id="play" style="width: ' + $(window).width() + 'px; height: ' + $(window).height() + 'px;"><div id="play_link"></div></div>'));
 			$('#play_link').css('top', ($(window).height() / 2 - $('#play_link').height() / 2) + 'px');
@@ -105,14 +105,14 @@ function play() {
 	$('#play').fadeOut('normal', function() {
 		$(this).remove();
 	});
-	source.noteOn(0);
+	source.start();
 }
 
 $(window).resize(function() {
 	if($('#play').length === 1) {
 		$('#play').width($(window).width());
 		$('#play').height($(window).height());
-		
+
 		if($('#play_link').length === 1) {
 			$('#play_link').css('top', ($(window).height() / 2 - $('#play_link').height() / 2) + 'px');
 			$('#play_link').css('left', ($(window).width() / 2 - $('#play_link').width() / 2) + 'px');
