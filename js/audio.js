@@ -1,8 +1,7 @@
 var context;
 var source, sourceJs;
 var analyser;
-var buffer;
-var url = 'data/cufool_you_in_my_world_instrumental.ogg';
+var url = 'data/coyote_kisses-six_shooter.mp3';
 var array = new Array();
 var boost = 0;
 
@@ -16,7 +15,7 @@ var interval = window.setInterval(function() {
 }, 500);
 
 try {
-	if(typeof webkitAudioContext === 'function') {
+	if(typeof webkitAudioContext === 'function' || 'webkitAudioContext' in window) {
 		context = new webkitAudioContext();
 	}
 	else {
@@ -66,7 +65,7 @@ request.onload = function() {
 
 			$('#info')
 				.fadeOut('normal', function() {
-					$(this).html('<div id="artist"><a class="name" href="http://www.looperman.com/users/profile/345547" target="_blank">Cufool</a><br /><a class="song" href="http://www.looperman.com/tracks/detail/70506" target="_blank">You in my world instrumental</a><br /></div><div><img src="data/cufool.jpg" width="58" height="58" /></div>');
+					$(this).html('<div id="artist"><a class="name" href="https://soundcloud.com/coyotekisses" target="_blank">Coyote Kisses</a><br /><a class="song" href="https://soundcloud.com/coyotekisses/six-shooter" target="_blank">Six shooter</a><br /></div><div><img src="data/coyote_kisses.jpg" width="58" height="58" /></div>');
 				})
 				.fadeIn();
 
@@ -105,7 +104,7 @@ function play() {
 	$('#play').fadeOut('normal', function() {
 		$(this).remove();
 	});
-	source.start();
+	source.start(0);
 }
 
 $(window).resize(function() {

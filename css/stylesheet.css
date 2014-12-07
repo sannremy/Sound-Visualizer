@@ -10,7 +10,6 @@ body{
 	background: -o-radial-gradient(center, circle cover,  #ffffff 10%,#e5e5e5 100%); /* Opera 12+ */
 	background: -ms-radial-gradient(center, circle cover,  #ffffff 10%,#e5e5e5 100%); /* IE10+ */
 	background: radial-gradient(circle at center,  #ffffff 10%,#e5e5e5 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
 	cursor: default;
 	overflow: hidden;
 	color: #000;
@@ -62,7 +61,7 @@ canvas{
 }
 
 #info #artist .song {
-	
+
 }
 
 #play {
